@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+             <h:form>
+            <h:outputText value="Nombre: " />
+            <h:inputText id="nombre" value="#{validacionController.nombre}" required="true" label="obligatorio"/>
+                        <h:message for="nombre" style="color: red"></h:message>
+            <br></br><br></br>
+            <h:outputText value="Numero: "/>            
+            <h:inputText id="idNumero2" value="#{validacionController.numero}" required="true" label="entre 0 y 10"/>
+            
+            <h:message for="idNumero2" style="color: red"></h:message>
+           
+            <br></br><br></br>
+            <h:outputText value="Correo: "/>
+            <h:inputText id="correo" value="#{validacionController.correo}" label="no concide"/>
+            <h:message for="correo" style="color: red"></h:message>
+           <br></br><br></br>
+            <h:outputText value="Moneda: "/>
+            <h:inputText id="moneda" value="#{validacionController.moneda}"
+				size="20" required="true"
+				label="ejemplo 99" >
+				<!-- display in at least 2 decimal points -->
+		
+			</h:inputText>
+					
+			<h:message for="moneda" style="color:red" />
+           <br></br><br></br>
+           <h:outputLabel value="Fecha: "/>
+           <h:inputText id="fecha" value="#{validacionController.fecha}" label="no coincide el formato" >
+                
+                </h:inputText>
+           <h:message for="fecha" style="color:red" />
+           <br></br><br></br>
+           
+           <h:commandButton action="bien.xhtml" value="Enviar"/>
+              
+   
+
+        </h:form>
+    </h:body>
+</html>
+

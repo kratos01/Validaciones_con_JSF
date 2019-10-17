@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Validaciones Jfs</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <h:outputText value="Nombre: " />
+            <h:inputText id="nombre" required="true" label="obligatorio">
+            </h:inputText>
+            <h:message for="nombre" style="color: red"></h:message>
+            <br></br><br></br>
+            <h:outputText value="Numero: "/>            
+            <h:inputText id="idNumero2" required="true" label="entre -10 y 10">
+                <f:validateLongRange minimum="-10" maximum="10"></f:validateLongRange>
+            </h:inputText>
+            <h:message for="idNumero2" style="color: red"></h:message>
+            <br></br><br></br>
+            <h:outputText value="Tamaño" />
+            <h:inputText id="tamano" size="10" label="minimo tamano 5">
+                <f:validateLength for="tamano" maximum="5" minimum="3"></f:validateLength>
+            </h:inputText> 
+            <h:message for="tamano" style="color: red"></h:message>
+            <br></br><br></br>
+            <h:outputText value="Correo: "/>
+            <h:inputText id="correo" label="no concide">
+                <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@+]+)"/> 
+            </h:inputText>
+            <h:message for="correo" style="color: red"></h:message>
+           <br></br><br></br>
+            <h:outputText value="Moneda $: "/>
+            <h:inputText id="moneda" 
+				size="20" required="true"
+				label="ejemplo 99" >
+				<!-- display in at least 3 decimal points -->
+                                <f:convertNumber minFractionDigits="3" />
+			</h:inputText>
+					
+			<h:message for="moneda" style="color:red" />
+           <br></br><br></br>
+           <h:outputLabel value="Fecha: "/>
+           <h:inputText id="fecha" label="no concide el formato" required="true">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:inputText>
+           <h:message for="fecha" style="color:red" />
+           <br></br><br></br>
+           <h:commandButton action="bien.xhtml" value="Enviar" type="sumbit"/>
+              
+   
+
+        </h:form>
+        
+    </h:body>
+</html>
+
